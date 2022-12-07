@@ -12,11 +12,10 @@ function welcome() {
         if (answer2) {
             alert(`\nHello ${answer2}!\n\nHere are the rules:\n1. Rock beats Scissors, Scissors beats Paper, Paper beats Rock.\n2. The computer will wait until you input a valid answer.\n\nSo, Let's play!`);
             game();
-        } // } else if (player === null || player === ''){
-        alert("Okay, see you next time!");
         }
+        alert("Okay, see you next time!");
     }
-// }
+}
 
 function computerPlay() {
     let computerSelection = Math.floor(Math.random() * 3);   
