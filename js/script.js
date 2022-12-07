@@ -103,8 +103,8 @@ function game() {
         alert("\nComputer wins! Better Luck Next Time :)\n\n Thanks for playing!")
     }
     else if (playerScore === 0 && computerScore === 0){
-        console.log("------------------------------------------\nSorry no one is not interested to play! :(\n------------------------------------------");
-        alert("\nSorry no one is not interested to play! :(")
+        console.log("------------------------------------------\nSorry no one is interested to play! :(\n------------------------------------------");
+        alert("\nSorry no one is interested to play! :(")
     }
     else {
         console.log("---------------------\nWow it's a tie!\n---------------------")
