@@ -40,8 +40,6 @@ function playerPlay() {
     }
 }
 
-playerPlay();
-
 function playRound(answer1, answer2) {
     if (answer1 == answer2){
         return("It's a tie for this round!");
