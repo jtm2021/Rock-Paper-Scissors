@@ -32,12 +32,11 @@ function playerPlay() {
     if (playerSelection !== "rock" && playerSelection !== "paper" && playerSelection !== "scissors") {
         alert("You did not enter a valid option. Please try again.");
         playerPlay();
-    }   else if (playerSelection === null) {
+    } else if  (playerSelection === null) {
         alert("You did not enter a valid option. Please try again.");
         playerPlay();
-    } else {
-        return playerSelection;
-    }
+    } 
+    return playerSelection;
 }
 
 function playRound(answer1, answer2) {
