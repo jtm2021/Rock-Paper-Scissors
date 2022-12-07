@@ -36,7 +36,6 @@ function playerPlay() {
         alert("You did not enter a valid option. Please try again.");
         playerPlay();
     } else {
-        console.log(playerSelection);
         return playerSelection;
     }
 }
