@@ -27,20 +27,21 @@ function computerPlay() {
 }
 
 function playerPlay() {
-    let playerSelection = prompt("Enter your choice (Just pick a number!):\n 1 = ROCK\n 2 = PAPER\n 3 = SCISSORS");
-    if (playerSelection !== "1" && playerSelection !== "2" && playerSelection !== "3") {
-        return;
-    } else if (playerSelection == "1") {
-        playerSelection = "rock";
-        return playerSelection;
-    } else if (playerSelection == "2") {
-        playerSelection = "paper";
-        return playerSelection;
+    let playerAnswer = prompt("Enter your choice: rock, paper or scissors?");
+    playerSelection = playerAnswer?.toLowerCase().trim() || '';
+    if (playerSelection !== "rock" && playerSelection !== "paper" && playerSelection !== "scissors") {
+        alert("You did not enter a valid option. Please try again.");
+        playerPlay();
+    }   else if (playerSelection === null) {
+        alert("You did not enter a valid option. Please try again.");
+        playerPlay();
     } else {
-        playerSelection = "scissors";
+        console.log(playerSelection);
         return playerSelection;
-    } 
+    }
 }
+
+playerPlay();
 
 function playRound(answer1, answer2) {
     if (answer1 == answer2){
@@ -82,17 +83,11 @@ function game() {
     for (let i = 1; i < 6; i++) {
         console.log("\n------ROUND" + " " + i + "------\n");
         let userChoice = playerPlay();
-        let computerChoice = computerPlay();
-        
-        if (userChoice !== "rock" && userChoice !== "paper" && userChoice !== "scissors" && userChoice !== null){
-            console.log("You didn't choose a valid option. No score for this round :(\n");
-        }
-        else {
-            console.log("You chose" + " " + userChoice);        
-            console.log("The computer chose" + " " + computerChoice);
-            console.log("\n" + playRound(userChoice, computerChoice));
-            console.log("\n -----SCOREBOARD-----" + "\n| You     :" + playerScore + "         |\n"+ "| Computer:" + computerScore + "         |\n --------------------");
-        }
+        let computerChoice = computerPlay();     
+        console.log("You chose" + " " + userChoice);        
+        console.log("The computer chose" + " " + computerChoice);
+        console.log("\n" + playRound(userChoice, computerChoice));
+        console.log("\n -----SCOREBOARD-----" + "\n| You     :" + playerScore + "         |\n"+ "| Computer:" + computerScore + "         |\n --------------------");
     }
     if (playerScore > computerScore){
         console.log("----------------------------\nCongratulations! You win!\n----------------------------")
