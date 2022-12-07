@@ -5,12 +5,12 @@ function welcome() {
       let playerName = prompt("Welcome to the Rock-Paper-Scissors game! What is your name?");
       player = playerName?.toLowerCase().trim() || '';
         if (player) {
-            alert(`\nHello ${player.trim()}!\n\nHere are the rules:\n1. Rock beats Scissors, Scissors beats Paper, Paper beats Rock.\n2. You can only choose the number corresponding to the choices.\n3. The computer will not play if your answer is invalid.\n\nSo, Let's play!`);
+            alert(`\nHello ${player.trim()}!\n\nHere are the rules:\n1. Rock beats Scissors, Scissors beats Paper, Paper beats Rock.\n2. The computer will wait until you input a valid answer.\n\nSo, Let's play!`);
             game();   
         } else if (player === null) {
-            alert("You did not enter your name. It seems like you're not interested. Goodbye!");
+            alert("I'm sorry that you're not interested to play. Bye!");
         } else {
-            alert("You did not enter your name. It seems like you're not interested. Goodbye!");
+            alert("I'm sorry that you're not interested to play. Bye!");
         }
 }
 
@@ -27,8 +27,8 @@ function computerPlay() {
 }
 
 function playerPlay() {
-    let playerAnswer = prompt("Enter your choice: rock, paper or scissors?");
-    playerSelection = playerAnswer?.toLowerCase().trim() || '';
+    const playerAnswer = prompt("Enter your choice: rock, paper or scissors?");
+    playerSelection = playerAnswer?.toLowerCase().trim();
     if (playerSelection !== "rock" && playerSelection !== "paper" && playerSelection !== "scissors") {
         alert("You did not enter a valid option. Please try again.");
         playerPlay();
@@ -79,13 +79,17 @@ function playRound(answer1, answer2) {
 function game() {
     for (let i = 1; i < 6; i++) {
         console.log("\n------ROUND" + " " + i + "------\n");
-        let userChoice = playerPlay();
-        let computerChoice = computerPlay();     
+        const userChoice = playerPlay();
+        const computerChoice = computerPlay();     
         console.log("You chose" + " " + userChoice);        
         console.log("The computer chose" + " " + computerChoice);
         console.log("\n" + playRound(userChoice, computerChoice));
         console.log("\n -----SCOREBOARD-----" + "\n| You     :" + playerScore + "         |\n"+ "| Computer:" + computerScore + "         |\n --------------------");
     }
+    revealWinner();
+}
+
+function revealWinner() {
     if (playerScore > computerScore){
         console.log("----------------------------\nCongratulations! You win!\n----------------------------")
         alert("\nCongratulations! You win!\n\n Thanks for playing!")
@@ -103,6 +107,5 @@ function game() {
         alert("\nWow it's a tie!\n\n Thanks for playing!")
     }
 }
-
             
 welcome();
