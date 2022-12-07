@@ -2,17 +2,17 @@ let playerScore = 0;
 let computerScore = 0;
 
 function welcome() {
-      let playerName = prompt("Welcome to the Rock-Paper-Scissors game! What is your name?");
-      player = playerName?.toLowerCase().trim() || '';
+    let playerName = prompt("Welcome to the Rock-Paper-Scissors game! What is your name?");
+    player = playerName?.toLowerCase().trim() || '';
         if (player) {
             alert(`\nHello ${player.trim()}!\n\nHere are the rules:\n1. Rock beats Scissors, Scissors beats Paper, Paper beats Rock.\n2. The computer will wait until you input a valid answer.\n\nSo, Let's play!`);
             game();   
-        } else if (player === null) {
-            alert("I'm sorry that you're not interested to play. Bye!");
-        } else {
-            alert("I'm sorry that you're not interested to play. Bye!");
+        } else if (player === null || player === ''){
+            alert("Please enter you name :)");
+            welcome();
         }
 }
+
 
 function computerPlay() {
     let computerSelection = Math.floor(Math.random() * 3);   
