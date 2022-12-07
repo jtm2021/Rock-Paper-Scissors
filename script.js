@@ -1,5 +1,6 @@
 let playerScore = 0;
 let computerScore = 0;
+let round = 1;
 
 function welcome() {
     let playerName = prompt("Welcome to the Rock-Paper-Scissors game! What is your name?");
@@ -30,7 +31,7 @@ function computerPlay() {
 }
 
 function playerPlay() {
-    const playerAnswer = prompt("Enter your choice: rock, paper or scissors?");
+    const playerAnswer = prompt(`Round ${round}!\n\nEnter your choice: rock, paper or scissors?`);
     playerSelection = playerAnswer?.toLowerCase().trim();
     if (playerSelection !== "rock" && playerSelection !== "paper" && playerSelection !== "scissors") {
         alert("You did not enter a valid option. Please try again.");
@@ -79,12 +80,12 @@ function playRound(answer1, answer2) {
 }
 
 function scoreBOARD() {
-    console.log("\n -----SCOREBOARD-----" + "\n| You     :" + playerScore + "         |\n"+ "| Computer:" + computerScore + "         |\n --------------------");
+    console.log("\n 🎊🎊SCOREBOARD🎊🎊" + "\n| You     :" + playerScore + "         |\n"+ "| Computer:" + computerScore + "         |\n --------------------");
 }
 
 function game() {
-    for (let i = 1; i < 6; i++) {
-        console.log("\n------ROUND" + " " + i + "------\n");
+    for (round = 1; round < 6; round++) {
+        console.log("\n------ROUND" + " " + round + "------\n");
         const userChoice = playerPlay();
         const computerChoice = computerPlay();     
         console.log("You chose" + " " + userChoice);        
@@ -99,22 +100,22 @@ function revealWinner() {
     if (playerScore > computerScore){
         console.log("\n\n----------------------------\nCongratulations! You win!\n----------------------------")
         scoreBOARD();
-        alert("Congratulations! You win!\n\n Thanks for playing!")
+        alert("\n\nCongratulations! You win! 🎉🎉🎉\n\n Thanks for playing!")
     }
     else if (playerScore < computerScore){
         console.log("\n\n--------------------------------------\nComputer wins! Better Luck Next Time :)\n--------------------------------------");
         scoreBOARD();
-        alert("Computer wins! Better Luck Next Time :)\n\n Thanks for playing!")
+        alert("\n\nComputer wins! Better Luck Next Time 😔😔😔\n\n Thanks for playing!")
     }
     else if (playerScore === 0 && computerScore === 0){
         console.log("\n\n------------------------------------------\nSorry no one is interested to play! :(\n------------------------------------------");
         scoreBOARD();
-        alert("Sorry no one is interested to play! :(")
+        alert("\n\nSorry no one is interested to play! 🤷🤷🤷")
     }
     else {
         console.log("\n\n---------------------\nWow it's a tie!\n---------------------")
         scoreBOARD();
-        alert("Wow it's a tie!\n\n Thanks for playing!")
+        alert("\n\nWow it's a tie!\n\n Thanks for playing!")
     }
 }
             
