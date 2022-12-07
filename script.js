@@ -78,6 +78,10 @@ function playRound(answer1, answer2) {
     }
 }
 
+function scoreBOARD() {
+    console.log("\n -----SCOREBOARD-----" + "\n| You     :" + playerScore + "         |\n"+ "| Computer:" + computerScore + "         |\n --------------------");
+}
+
 function game() {
     for (let i = 1; i < 6; i++) {
         console.log("\n------ROUND" + " " + i + "------\n");
@@ -86,27 +90,31 @@ function game() {
         console.log("You chose" + " " + userChoice);        
         console.log("The computer chose" + " " + computerChoice);
         console.log("\n" + playRound(userChoice, computerChoice));
-        console.log("\n -----SCOREBOARD-----" + "\n| You     :" + playerScore + "         |\n"+ "| Computer:" + computerScore + "         |\n --------------------");
+        scoreBOARD();
     }
     revealWinner();
 }
 
 function revealWinner() {
     if (playerScore > computerScore){
-        console.log("----------------------------\nCongratulations! You win!\n----------------------------")
-        alert("\nCongratulations! You win!\n\n Thanks for playing!")
+        console.log("\n\n----------------------------\nCongratulations! You win!\n----------------------------")
+        scoreBOARD();
+        alert("Congratulations! You win!\n\n Thanks for playing!")
     }
     else if (playerScore < computerScore){
-        console.log("--------------------------------------\nComputer wins! Better Luck Next Time :)\n--------------------------------------");
-        alert("\nComputer wins! Better Luck Next Time :)\n\n Thanks for playing!")
+        console.log("\n\n--------------------------------------\nComputer wins! Better Luck Next Time :)\n--------------------------------------");
+        scoreBOARD();
+        alert("Computer wins! Better Luck Next Time :)\n\n Thanks for playing!")
     }
     else if (playerScore === 0 && computerScore === 0){
-        console.log("------------------------------------------\nSorry no one is interested to play! :(\n------------------------------------------");
-        alert("\nSorry no one is interested to play! :(")
+        console.log("\n\n------------------------------------------\nSorry no one is interested to play! :(\n------------------------------------------");
+        scoreBOARD();
+        alert("Sorry no one is interested to play! :(")
     }
     else {
-        console.log("---------------------\nWow it's a tie!\n---------------------")
-        alert("\nWow it's a tie!\n\n Thanks for playing!")
+        console.log("\n\n---------------------\nWow it's a tie!\n---------------------")
+        scoreBOARD();
+        alert("Wow it's a tie!\n\n Thanks for playing!")
     }
 }
             
